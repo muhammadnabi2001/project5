@@ -52,6 +52,18 @@
                                 <td>{{$model->name}}</td>
                                 <td>{{$model->price}}</td>
                                 <td>{{$model->count}}</td>
+                                <td>
+                                    @php
+                                        $imagePath = public_path($model->img);
+                                    @endphp
+                                
+                                    @if($model->img && file_exists($imagePath))
+                                        <img src="{{ asset($model->img) }}" alt="Product Image" width="100px">
+                                    @else
+                                        <span class="text-muted">No Image</span>
+                                    @endif
+                                </td>
+                                
                                 <td>{{$model->user_id}}</td>                            
                                 <td>
                                     <form action="/company/{{$model->id}}"  method="post">
@@ -61,7 +73,7 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <a href="/detailcompany/{{$model->id}}" class="btn btn-info"><svg xmlns="http://www.w3.org/2000/svg"
+                                    <a href="/detailproduct/{{$model->id}}" class="btn btn-info"><svg xmlns="http://www.w3.org/2000/svg"
                                             width="16" height="16" fill="currentColor" class="bi bi-info"
                                             viewBox="0 0 16 16">
                                             <path

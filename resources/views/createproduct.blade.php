@@ -4,7 +4,7 @@
 <div class="content-wrapper">
   <a href="/" class="btn btn-primary m-2">Create</a>
 
-  <form action="/create" method="post">
+  <form action="/createproduct" method="post" enctype="multipart/form-data">
     @csrf
     <div class="card-body">
       <div class="row">
@@ -36,17 +36,41 @@
           @enderror
         </div>
       </div>
+      <div class="row">
+        <div class="form-group col-5"> <!-- 12 kolonkali bo'lishi uchun o'zgartirildi -->
+          <label for="count">Image</label>
+          <input type="file" class="form-control @error('img') is-invalid @enderror" id="img"  name="img" value="{{ old('img') }}">
+
+          @error('img')
+            <div class="alert alert-danger mt-2">{{ $message }}</div>
+          @enderror
+        </div>
+      </div>
     </div>
     <div class="row mt-3">
         <div class="form-group col-5">
           <label for="category">Users</label>
-          <option value=""></option>
-          <select class="form-control @error('user') is-invalid @enderror" id="user" name="user_id">
+          <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id">
+            <option value=""></option>
             @foreach($users as $user)
             <option value="{{$user->id}}">{{$user->name}}</option>
             @endforeach
           </select>
-          @error('category')
+          @error('user_id')
+            <div class="alert alert-danger mt-2">{{ $message }}</div>
+          @enderror
+        </div>
+      </div>
+    <div class="row mt-3">
+        <div class="form-group col-5">
+          <label for="category">Companies</label>
+          <select class="form-control @error('company_id') is-invalid @enderror" id="company_id" name="company_id">
+            <option value=""></option>
+            @foreach($companies as $company)
+            <option value="{{$company->id}}">{{$company->name}}</option>
+            @endforeach
+          </select>
+          @error('company_id')
             <div class="alert alert-danger mt-2">{{ $message }}</div>
           @enderror
         </div>

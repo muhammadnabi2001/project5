@@ -21,13 +21,13 @@
       <div class="row mt-3">
         <div class="form-group col-5">
           <label for="category">Users</label>
-          <option value=""></option>
-          <select class="form-control @error('user') is-invalid @enderror" id="user" name="user_id">
+          <select class="form-control @error('user_id') is-invalid @enderror" id="user_id" name="user_id">
+            <option value=""></option>
             @foreach($users as $user)
             <option value="{{$user->id}}">{{$user->name}}</option>
             @endforeach
           </select>
-          @error('user')
+          @error('user_id')
             <div class="alert alert-danger mt-2">{{ $message }}</div>
           @enderror
         </div>
