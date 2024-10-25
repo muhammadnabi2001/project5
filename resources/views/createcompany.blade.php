@@ -20,14 +20,14 @@
       
       <div class="row mt-3">
         <div class="form-group col-5">
-          <label for="category">Category</label>
+          <label for="category">Users</label>
           <option value=""></option>
           <select class="form-control @error('user') is-invalid @enderror" id="user" name="user_id">
             @foreach($users as $user)
             <option value="{{$user->id}}">{{$user->name}}</option>
             @endforeach
           </select>
-          @error('category')
+          @error('user')
             <div class="alert alert-danger mt-2">{{ $message }}</div>
           @enderror
         </div>

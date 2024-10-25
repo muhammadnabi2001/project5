@@ -19,3 +19,4 @@ Route::get('/detailcompany/{id}',[CompanyController::class,'detail']);
 Route::get('/createcompany',[CompanyController::class,'create']);
 Route::post('/create',[CompanyController::class,'createcompany']);
 Route::get('/product',[ProductController::class,'product']);
+Route::get('/createproduct',[ProductController::class,'createproduct']);

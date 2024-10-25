@@ -24,7 +24,7 @@
             </div>
             <div class="row mb-2">
                 <div class="col-sm-6 mt-2">
-                    <a href="/createcompany" class="btn btn-primary">Create</a>
+                    <a href="/createproduct" class="btn btn-primary">Create</a>
                     
                 </div>
             </div>
