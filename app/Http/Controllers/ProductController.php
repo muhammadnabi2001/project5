@@ -24,6 +24,13 @@ class ProductController extends Controller
         $companies=Company::all();
         return view('createproduct',['users'=>$users,'companies'=>$companies]);
     }
+    public function delete(int $id)
+    {
+        //dd(123);
+        $product=Product::find($id);
+        $product->delete();
+        return redirect('/product')->with('delete',"Ma'lumot muvafaqiyatli o'chirildi");
+    }
     public function addproduct(ProductRequest $request)
     {
         $product= new Product();
@@ -53,5 +60,6 @@ class ProductController extends Controller
         //dd($models);
         return view('detailproduct',['models'=>$products]);
     }
+    
 
 }

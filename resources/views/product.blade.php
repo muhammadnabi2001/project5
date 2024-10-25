@@ -64,9 +64,8 @@
                                     @endif
                                 </td>
                                 
-                                <td>{{$model->user_id}}</td>                            
                                 <td>
-                                    <form action="/company/{{$model->id}}"  method="post">
+                                    <form action="/deleteproduct/{{$model->id}}"  method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">Delete</button>

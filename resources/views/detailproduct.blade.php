@@ -29,7 +29,17 @@
                </tr>
                <tr class="table-success">
                   <th>Image</th>
-                  <td><img src="{{ asset($models->img) }}" alt="Product Image" width="100px"></td>
+                  <td>
+                     @php
+                         $imagePath = public_path($models->img); // Yoki asset($models->img) bilan foydalanishingiz mumkin
+                     @endphp
+
+                     @if(file_exists($imagePath) && !empty($models->img))
+                         <img src="{{ asset($models->img) }}" alt="Product Image" width="100px">
+                     @else
+                         <span class="text-muted">No Image</span>
+                     @endif
+                  </td>
                </tr>
                <tr class="table-success">
                   <th>User Id</th>
