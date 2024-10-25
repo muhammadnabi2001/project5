@@ -2,7 +2,7 @@
 @section('title', 'Category')
 @section('content')
 <div class="content-wrapper">
-  <a href="/" class="btn btn-primary m-2">Create</a>
+  <a href="/company" class="btn btn-primary m-2">Create</a>
 
   <form action="/create" method="post">
     @csrf
