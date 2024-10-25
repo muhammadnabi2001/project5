@@ -217,7 +217,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/post" class="nav-link">
+                            <a href="/company" class="nav-link">
                                 <i class="nav-icon fas fa-bars"></i>
                                 <p>
                                     Companeis
@@ -225,7 +225,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/comment" class="nav-link">
+                            <a href="/product" class="nav-link">
                                 <i class="nav-icon fas fa-comments"></i>
                                 <p>
                                     Products
