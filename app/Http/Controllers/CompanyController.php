@@ -12,7 +12,7 @@ class CompanyController extends Controller
 {
     public function company()
     {
-        $comanies=Company::all();
+        $comanies=Company::orderBy('id','desc')->paginate(10);
         //dd($comanies);
         return view('company',['models'=>$comanies]);
     }
@@ -42,6 +42,15 @@ class CompanyController extends Controller
         $company->user_id=$request->user_id;
         $company->save();
         return redirect('/company')->with('success',"Ma'lumot muvaqiyatli qo'shildi");
+    }
+    public function update(Request $request,Company $name)
+    {
+        //dd($request->all(), $user);
+        $request->validate([
+            'name' => 'required|max:255'
+        ]);
+        $name->update($request->all());
+        return redirect('/company');
     }
 }
 

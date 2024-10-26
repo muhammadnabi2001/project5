@@ -14,7 +14,7 @@ class ProductController extends Controller
 {
     public function product()
     {
-        $comanies=Product::all();
+        $comanies=Product::orderBy('id','desc')->paginate(10);
         //dd($comanies);
         return view('product',['models'=>$comanies]);
     }
