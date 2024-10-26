@@ -7,6 +7,7 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
+            
             @if(session('delete'))
                 <div class="alert alert-success" role="alert">
                     {{session('delete')}}
@@ -34,6 +35,17 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
+            <div class="row">
+                <div class="col-10">
+                    <form action="{{route('product.search')}}" method="get">
+                        @csrf
+                        <input type="text" class="form-control m-3" id="username0" name="search">
+                </div>
+                <div class="col-1">
+                    <input type="submit" value="search" class="btn btn-primary m-3" name="ok">
+                    </form>
+                </div>
+            </div>
             <div class="row">
                 <div class="col">
                     <table class="table table-striped">

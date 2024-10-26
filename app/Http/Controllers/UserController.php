@@ -54,4 +54,10 @@ class UserController extends Controller
         $user->update($request->all());
         return redirect('/');
     }
+    public function search(Request $request)
+    {
+       //dd($request->all()); 
+        $users=User::where('name','like','%'.$request->search.'%')->orderBy('id','desc')->paginate(5);
+        return view('index', ['users' => $users]);
+    }
 }

@@ -60,6 +60,10 @@ class ProductController extends Controller
         //dd($models);
         return view('detailproduct',['models'=>$products]);
     }
-    
-
+    public function search(Request $request)
+    {
+       //dd($request->all()); 
+        $models=Product::where('name','like','%'.$request->search.'%')->orderBy('id','desc')->paginate(5);
+        return view('product', ['models' => $models]);
+    }
 }

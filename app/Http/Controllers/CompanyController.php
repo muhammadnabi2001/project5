@@ -52,5 +52,11 @@ class CompanyController extends Controller
         $name->update($request->all());
         return redirect('/company');
     }
+    public function search(Request $request)
+    {
+       //dd($request->all()); 
+        $users=Company::where('name','like','%'.$request->search.'%')->orderBy('id','desc')->paginate(5);
+        return view('company', ['models' => $users]);
+    }
 }
 
